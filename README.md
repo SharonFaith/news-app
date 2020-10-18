@@ -24,13 +24,24 @@ News App is a web app that allows a user to list and preview news articles from 
 ## Dependencies
 * Unittest
 * Flask
-* Flask-Bootsrap
+* Flask-Bootstrap
 * Flask-Script
+* Jinja2
 * gunicorn
+* click
+* dominate
+* MarkupSafe
+* Werkzeug
+* visitor
+
+
 
 ## Technologies Used
-- Flask
+
 - Python
+- HTML
+- CSS
+- Bootstrap
 
 ## Support and contact details
 Github account: SharonFaith
