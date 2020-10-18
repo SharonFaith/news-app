@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+    {{ super () }}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/source_articles.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container_fluid" style="background-color:black;">
+<div class="container" style="font-family: 'Sansita Swashed', cursive;background-color:black;">
+    
+    <h1 style="text-align: center; color: maroon;background-color: coral;">Articles for: {{src_name}}</h1>
+    <hr>
+    <ul>
+        <div class="row">
+        {% for article in articles %}
+        
+            
+            <div class="col-md-6" style="padding: 30px;"> 
+                <div class="card" style="background-color: coral"> 
+                    <div class="class-header">
+                        <h3 style="text-align: center;"><a href="{{article.url}}" style="color: maroon; font-weight: bold;">{{article.title}}</a></h3>
+                    </div>
+                    <hr>
+                    <div class="card-body" style="color: black; text-align: center;">
+                        <a href="{{article.url}}" ><img class="card-img-body" src="{{article.image_url}}" style="height: 40%; width: 85%"alt="{{article.title}}"></a>
+                        
+                        <div class="card-footer">
+                            
+                            <p  style="font-weight: bold; text-align: left;">- Description: {{article.description}}</p>
+                            <p  style="font-weight: bold; text-align: left;">- Click <a href="{{article.url}}" style="color: maroon;">here</a> for the full article</p>
+                            <!--<li>{{article.url}}</li>-->
+                            <p  style="font-weight: bold; text-align: left;">- Date Published: {{article.time}}</p>
+                            <hr>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>    
+            
+    
+    </ul>
+</div>
+</div>
+
+{% endblock %}
