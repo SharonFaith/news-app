@@ -6,7 +6,7 @@ News App is a web app that allows a user to list and preview news articles from 
 
 
 ## Running the app
-*  Access the app at the live site: 
+*  Access the app at the live site: https://the-news-application.herokuapp.com/
 
 
 ## Setup/Installation Requirements
