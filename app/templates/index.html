@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
-{% import 'macros.htnl' as macro %}
+
 
 
 {% block content %}
     <div class="container_fluid" style="background-color: beige;">
         
         <ul>
-            <!--{{macro.displaySourceList(sources)}}-->
+            
             {% for source in sources %}
                 <li><a href="/news-source/{{source.id}}">{{source.name}}</a></li>
             {% endfor %}
