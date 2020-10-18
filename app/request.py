@@ -41,7 +41,32 @@ def process_results(sources_list):
     return sources_results
 
 
+def process_results2(article_list):
 
+    '''
+    function that processes the news article results and transforms them to a list of objects
+
+    Args:
+       article_list: A list of dictionaries containing news article details
+    Returns:
+        articles_results: A list of article objects 
+    '''
+
+    articles_results = []
+
+    for article in article_list:
+        id = article.get('source.id')
+        image_url = article.get('urlToImage')
+        title = article.get('title')
+        description = article.get('description')
+        time = article.get('publishedAt')
+        url = article.get('url')
+
+        if image_url != None:
+            news_article_object = News_Article(id, image_url, title, description, time, url)
+            articles_results.append(news_article_object)
+    
+    return articles_results
 
 
 def get_news_sources():
@@ -61,3 +86,26 @@ def get_news_sources():
             sources_results = process_results(sources_results_list)
 
     return sources_results
+
+def get_articles(source_id):
+    '''
+    function that gets json response to url request
+    '''
+
+    get_articles_url = 'https://newsapi.org/v2/everything?sources={}&apiKey={}'.format(source_id, api_key)
+
+    
+
+
+    with urllib.request.urlopen(get_articles_url) as url:
+        get_article_data = url.read()
+        get_article_response = json.loads(get_article_data)
+
+        articles_results = None
+
+        if get_article_response['articles']:
+            articles_results_lists = get_article_response['articles']
+           
+            articles_results = process_results2(articles_results_lists)
+    
+    return articles_results
