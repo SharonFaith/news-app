@@ -34,3 +34,8 @@ def source_articles(source_id):
         return redirect(url_for('main.article_error'))
     else:    
         return render_template('source_articles.html', id = source_id, articles = news_articles, src_name = source_name_format)
+
+@main.route('/an_error')
+def article_error():
+
+    return render_template('article_error.html')
