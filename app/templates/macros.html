@@ -1,0 +1,44 @@
+{% macro displaySourceList(source_list) %}
+   
+    
+        <div class="container" style="font-family: 'Sansita Swashed', cursive;background-color: beige;">
+            
+            <h1 style="text-align: center; color: maroon;background-color: black;">News Sources:</h1>
+            <hr>
+            <ul>
+                <div class="row">
+                {% for source in source_list %}
+                
+                    
+                    <div class="col-md-6" style="padding: 30px;"> 
+                        <div class="card" style="background-color: coral"> 
+                            <div class="class-header" style="background-color: black;">
+                                <h3 style="text-align: center;"><a href="/news-source/{{source.id}}" style="color: white; font-weight: bold;">{{source.name}}</a></h3>
+                            </div>
+                            <hr>
+                            <div class="card-body" style="color: black; text-align: center;">
+                                <p style="font-weight: bold; text-align: left">- Description: {{source.description}}</p>
+                                
+                                <div class="card-footer">
+                                    
+                                    <p  style="font-weight: bold; text-align: left;"><a href="/news-source/{{source.id}}" style="color: maroon;">- Click here to get the articles by this source.</a></p>
+                                    <p  style="font-weight: bold; text-align: left;">- Click <a href="{{source.url}}" style="color: maroon;">here</a> to go to the official website.</p>
+                                   
+                                    <p  style="font-weight: bold; text-align: left;">- Category: {{source.category}}</p>
+                                    <hr>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>    
+                    
+            
+            </ul>
+        </div>
+        
+        
+        
+     
+{% endmacro %} 
